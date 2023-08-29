@@ -7,17 +7,25 @@
 <title>Insert title here</title>
 </head>
 <body>
-<% List<Employee> employees=(List<Employee>) request.getAttribute("employeeList"); %>
-<h1>hai</h1>
-<h1>${size}</h1>
-<table><tr><th>Emp id</th><th>Name</th><th>job</th><th>Salary</th><th>Dept</tr></table>
-<c: forEach items="${employeeList}" var="item">
-<tr><td>${item.getEmpno()}</td>
-<td>${item.getEmpname()}</td>
-<td>${ item.getJob()}</td>
-<td>${item.getSal()}</td>
-<td>${item.getDept()}</td>
+<% List<Employee> empos =(List<Employee>) request.getAttribute("employeeList"); %>
+<table>
+<tr>
+<th>Emp id</th>
+<th>Name</th>
+<th>job</th>
+<th>Salary</th>
+<th>Dept</th>
 </tr>
-</c:>
+<% for(Employee employee :empos ){ %>
+<tr>
+<td><%= employee.getEmpno() %></td>
+<td><%= employee.getEmpname() %></td>
+<td><%= employee.getJob() %></td>
+<td><%= employee.getSal() %></td>
+<td><%= employee.getDept() %></td>
+</tr>
+<% } %>
+
+</table>
 </body>
 </html>
